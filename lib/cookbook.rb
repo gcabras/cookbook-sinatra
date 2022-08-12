@@ -5,7 +5,7 @@ class Cookbook
   def initialize(csv_file_path)
     @recipes = []
     @csv_file_path = csv_file_path
-    load_mycsv
+    load_csv
   end
 
   def all
@@ -26,7 +26,7 @@ class Cookbook
     store_recipe
   end
 
-  def load_mycsv
+  def load_csv
     CSV.foreach(@csv_file_path) do |row|
       @recipes << Recipe.new(row[0], row[1], row[2], row[3])
     end
